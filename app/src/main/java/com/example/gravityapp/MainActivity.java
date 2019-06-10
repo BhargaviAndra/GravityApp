@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 private ConstraintLayout r;
 private ImageView image1,image2,image3,image4,image5;
 Animation up,down;
-int a,b,c,d,e,A=0,B=0,C=0,D=0,E=0;
+int a,b,c,d,e,f=0,g=0,h=0,i=0,j=0,touch=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,21 +39,51 @@ int a,b,c,d,e,A=0,B=0,C=0,D=0,E=0;
                 c = new Random().nextInt(5);
                 d = new Random().nextInt(5);
                 e = new Random().nextInt(5);
-                //position is indicated by A,B,C,D,E for even values stone is up and odd values stone is down.
+                //position is indicated by f,g,h,i,j store the value of initial random number generated
                 //if random number is even and the position is even send it down
                 //if random number is odd and position is odd send it up.
                 //for rest cases it will remain in same position
-                if (a%2== 0) {
-                    if (A % 2 == 0) {
-                        A=A+1;
+                touch=touch+1;
+               if(touch==1)
+               {if(a%2==0) {
+                   image1.startAnimation(down);
+                   startAnimationDown();
+                   f=a;
+               }
+                   if(b%2==0) {
+                       image2.startAnimation(down);
+                       startAnimationDown();
+                       g=b;
+                   }
+                   if(c%2==0) {
+                       image3.startAnimation(down);
+                       startAnimationDown();
+                       h=c;
+                   }
+                   if(d%2==0) {
+                       image4.startAnimation(down);
+                       startAnimationDown();
+                       i=d;
+                   }
+                   if(e%2==0) {
+                       image5.startAnimation(down);
+                       startAnimationDown();
+                       j=e;
+                   }
+
+               }
+               if(touch>1)
+               {if (f%2==1) {
+                    if (a% 2 == 0) {
+                        f=a;
                         image1.startAnimation(down);
                         startAnimationDown();
 
                     }
 
-                }  else if(a%2==1) {
-                        if (A % 2 == 1) {
-                            A=A+1;
+                }   if(f%2==0) {
+                        if (a%2 == 1) {
+                            f=a;
                             image1.startAnimation(up);
                             startAnimationUp();
 
@@ -61,62 +91,62 @@ int a,b,c,d,e,A=0,B=0,C=0,D=0,E=0;
 
                     }
 
-                if (b%2== 0) {
-                    if (B % 2 == 0) {B=B+1;
+                if (g%2== 1) {
+                    if (b % 2 == 0) {g=b;
                         image2.startAnimation(down);
                         startAnimationDown();
 
                     }
 
-                } else if(b%2==1) {
-                        if (B% 2 == 1) {B=B+1;
+                } else if(g%2==0) {
+                        if (b% 2 == 1) {g=b;
                             image2.startAnimation(up);
                             startAnimationUp();
 
                         }
 
                     }
-                if (c%2 ==0 ) {
-                    if (C % 2 == 0) {C=C+1;
+                if (h%2 ==1 ) {
+                    if (c % 2 == 0) {h=c;
                         image3.startAnimation(down);
                         startAnimationDown();
 
                     }
 
                 }
-                else if(c%2==1) {
-                    if (C%2 == 1) {
-                        C = C + 1;
+                else if(h%2==0) {
+                    if (h%2 == 1) {
+                        h=c;
                         image3.startAnimation(up);
                         startAnimationUp();
                     }
 
                 }
-                if (d%2== 0) {
-                    if (D % 2 == 0) {D=D+1;
+                if (i%2== 1) {
+                    if (d % 2 == 0) {i=d;
                         image4.startAnimation(down);
                         startAnimationDown();
 
                     }
 
-                }else  if(d%2==1) {
-                    if (D% 2 == 1) {D=D+1;
+                }else  if(i%2==0) {
+                    if (d% 2 == 1) {i=d;
                         image4.startAnimation(up);
                         startAnimationUp();
 
                     }
 
                 }
-                if (e%2 == 0) {
-                    if (E % 2 == 0) {E=E+1;
+                if (j%2 == 1) {
+                    if ( e% 2 == 0) {j=e;
                         image5.startAnimation(down);
                         startAnimationDown();
 
                     }
 
                 }
-              else  if(e%2==1) {
-                    if (E% 2 == 1) {E=E+1;
+              else  if(j%2==0) {
+                    if (e% 2 == 1) {j=e;
                         image5.startAnimation(up);
                         startAnimationUp();
 
@@ -124,7 +154,7 @@ int a,b,c,d,e,A=0,B=0,C=0,D=0,E=0;
 
                 }
 
-                }
+                }}
             private void startAnimationDown()
             {
                 {
