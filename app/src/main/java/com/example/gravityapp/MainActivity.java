@@ -46,31 +46,37 @@ stay_down=AnimationUtils.loadAnimation(this,R.anim.stay_down);
                 //if random number is odd and position is odd send it up.
                 //for rest cases it will remain in same position
                 touch=touch+1;
+
                if(touch==1)
-               {if(a%2==0) {
+               {f=a;
+               g=b;
+               h=c;
+               i=d;
+               j=e;
+                   if(a%2==0) {
                    image1.startAnimation(down);
                    startAnimationDown();
-                   f=a;
+
                }
                    if(b%2==0) {
                        image2.startAnimation(down);
                        startAnimationDown();
-                       g=b;
+
                    }
                    if(c%2==0) {
                        image3.startAnimation(down);
                        startAnimationDown();
-                       h=c;
+
                    }
                    if(d%2==0) {
                        image4.startAnimation(down);
                        startAnimationDown();
-                       i=d;
+
                    }
                    if(e%2==0) {
                        image5.startAnimation(down);
                        startAnimationDown();
-                       j=e;
+
                    }
 
                }
