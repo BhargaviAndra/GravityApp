@@ -14,7 +14,7 @@ import static android.graphics.Color.BLACK;
 public class MainActivity extends AppCompatActivity {
 private ConstraintLayout r;
 private ImageView image1,image2,image3,image4,image5;
-Animation up,down;
+Animation up,down,stay_up,stay_down;
 int a,b,c,d,e,f=0,g=0,h=0,i=0,j=0,touch=0;
 
     @Override
@@ -30,6 +30,8 @@ int a,b,c,d,e,f=0,g=0,h=0,i=0,j=0,touch=0;
         image5 = (ImageView) findViewById(R.id.image5);
         up = AnimationUtils.loadAnimation(this, R.anim.translate_up);
         down = AnimationUtils.loadAnimation(this, R.anim.translate_down);
+stay_up=AnimationUtils.loadAnimation(this,R.anim.stay_up);
+stay_down=AnimationUtils.loadAnimation(this,R.anim.stay_down);
 
         r.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,13 +82,23 @@ int a,b,c,d,e,f=0,g=0,h=0,i=0,j=0,touch=0;
                         startAnimationDown();
 
                     }
+                    else {
 
-                }   if(f%2==0) {
+                        image1.startAnimation(stay_up);
+                        stayUp();
+                    }
+
+               } else if(f%2==0) {
                         if (a%2 == 1) {
                             f=a;
                             image1.startAnimation(up);
                             startAnimationUp();
 
+                        }
+                        else
+                        {
+                            image1.startAnimation(stay_down);
+                            stayDown();
                         }
 
                     }
@@ -97,6 +109,10 @@ int a,b,c,d,e,f=0,g=0,h=0,i=0,j=0,touch=0;
                         startAnimationDown();
 
                     }
+                    else
+                    {image2.startAnimation(stay_up);
+                        stayUp();
+                    }
 
                 } else if(g%2==0) {
                         if (b% 2 == 1) {g=b;
@@ -104,13 +120,20 @@ int a,b,c,d,e,f=0,g=0,h=0,i=0,j=0,touch=0;
                             startAnimationUp();
 
                         }
-
+                        else {
+                            image2.startAnimation(stay_down);
+                            stayDown();
+                        }
                     }
                 if (h%2 ==1 ) {
                     if (c % 2 == 0) {h=c;
                         image3.startAnimation(down);
                         startAnimationDown();
 
+                    }
+                    else
+                    {image3.startAnimation(stay_up);
+                        stayUp();
                     }
 
                 }
@@ -120,6 +143,9 @@ int a,b,c,d,e,f=0,g=0,h=0,i=0,j=0,touch=0;
                         image3.startAnimation(up);
                         startAnimationUp();
                     }
+                    else {image3.startAnimation(stay_down);
+                        stayDown();
+                    }
 
                 }
                 if (i%2== 1) {
@@ -128,12 +154,19 @@ int a,b,c,d,e,f=0,g=0,h=0,i=0,j=0,touch=0;
                         startAnimationDown();
 
                     }
+                    else
+                    {image4.startAnimation(stay_up);
+                        stayUp();
+                    }
 
                 }else  if(i%2==0) {
                     if (d% 2 == 1) {i=d;
                         image4.startAnimation(up);
                         startAnimationUp();
 
+                    }
+                    else {image4.startAnimation(stay_down);
+                        stayDown();
                     }
 
                 }
@@ -143,12 +176,22 @@ int a,b,c,d,e,f=0,g=0,h=0,i=0,j=0,touch=0;
                         startAnimationDown();
 
                     }
+                    else
+                    {
+                        image5.startAnimation(stay_up);
+                        stayUp();
+                    }
 
                 }
               else  if(j%2==0) {
                     if (e% 2 == 1) {j=e;
                         image5.startAnimation(up);
                         startAnimationUp();
+
+                    }
+                    else
+                    {image5.startAnimation(stay_down);
+                    stayDown();
 
                     }
 
@@ -199,6 +242,54 @@ int a,b,c,d,e,f=0,g=0,h=0,i=0,j=0,touch=0;
 
                 }
             }
+            private void stayUp()
+            {
+                {
+                    stay_up.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
+
+                        }
+                    });
+                }
+            }
+            private void stayDown()
+            {
+                {
+                    stay_down.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
+
+                        }
+                    });
+                }
+            }
+
+
+
+
+
+
 
         });
 
